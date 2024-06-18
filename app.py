@@ -46,14 +46,14 @@ def create_and_load_model(weights_path):
     model.load_weights(weights_path)
     return model
 
-# Assuming your model weights are stored in the same directory as this script
+
 model_path = 'my_model_weights2.h5'
 model = create_and_load_model(model_path)
 
 st.title('🔮 D-Prime Prediction App')
 st.markdown('### Upload your image and get insights on the d-prime value.')
 
-# Instructions at the top
+
 st.markdown("""
 ## Instructions
 1. Upload an image using the uploader below.
@@ -91,7 +91,7 @@ if st.button('Predict'):
         prediction = model.predict([img_array, metadata_input])
         d_prime_predicted = prediction[0][0]
 
-        # Visualization of the prediction using Plotly
+
         fig = go.Figure(go.Indicator(
             mode = "gauge+number",
             value = d_prime_predicted,
@@ -106,7 +106,7 @@ if st.button('Predict'):
 
         st.plotly_chart(fig)
 
-        # Explanation of the d-prime value
+
         st.markdown(f"### Predicted D-Prime Value: {d_prime_predicted:.3f}")
         st.markdown("""
         The d-prime value is a statistical measure used to quantify the memorability score.
@@ -117,7 +117,7 @@ if st.button('Predict'):
 else:
     st.info('Click the predict button after uploading an image and setting metadata options.')
 
-# Additional information about the app at the bottom
+
 st.markdown('---')
 st.markdown("""
 ## About
